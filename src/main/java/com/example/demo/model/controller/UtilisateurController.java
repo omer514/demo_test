@@ -18,18 +18,18 @@ public class UtilisateurController {
         this.service = service;
     }
 
-    // Liste
+    // Affiche la liste des utilisateurs
     @GetMapping("/list")
     public String list(Model model) {
         model.addAttribute("utilisateurs", service.findAll());
-        return "utilisateurs/list";
+        return "utilisateurs/list"; // Thymeleaf : utilisateurs/list.html
     }
 
     // Formulaire création
     @GetMapping("/new")
     public String createForm(Model model) {
         model.addAttribute("utilisateur", new Utilisateur());
-        return "utilisateurs/form";
+        return "utilisateurs/form"; // Thymeleaf : utilisateurs/form.html
     }
 
     // Sauvegarde création
@@ -48,7 +48,7 @@ public class UtilisateurController {
     public String editForm(@PathVariable Long id, Model model) {
         var opt = service.findById(id);
         if (opt.isEmpty()) {
-            return "redirect:/utilisateurs";
+            return "redirect:/utilisateurs/list";
         }
         model.addAttribute("utilisateur", opt.get());
         return "utilisateurs/form";
@@ -58,17 +58,17 @@ public class UtilisateurController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         service.deleteById(id);
-        return "redirect:/utilisateurs";
+        return "redirect:/utilisateurs/list";
     }
 
-    // Détail
+    // Détail utilisateur
     @GetMapping("/{id}")
     public String view(@PathVariable Long id, Model model) {
         var opt = service.findById(id);
         if (opt.isEmpty()) {
-            return "redirect:/utilisateurs";
+            return "redirect:/utilisateurs/list";
         }
         model.addAttribute("utilisateur", opt.get());
-        return "utilisateurs/view";
+        return "utilisateurs/view"; // Thymeleaf : utilisateurs/view.html
     }
 }
