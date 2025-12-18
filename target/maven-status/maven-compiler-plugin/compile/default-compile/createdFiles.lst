@@ -1,0 +1,10 @@
+com\example\demo\DemoApplication.class
+com\example\demo\repository\UtilisateurRepository.class
+com\example\demo\model\controller\EtudiantController.class
+com\example\demo\repository\EtudiantRepository.class
+com\example\demo\model\Utilisateur.class
+com\example\demo\HomeController.class
+com\example\demo\model\controller\UtilisateurController.class
+com\example\demo\service\EtudiantService.class
+com\example\demo\service\UtilisateurService.class
+com\example\demo\model\Etudiant.class
