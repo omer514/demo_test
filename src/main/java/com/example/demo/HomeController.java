@@ -8,6 +8,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "Bienvenue dans ton premier projet Spring Boot !";
+        return "redirect:/etudiants/list";
     }
 }
